@@ -1,0 +1,33 @@
+
+<h1>
+  Title : {{title}}
+</h1>
+<router-outlet></router-outlet>
+<div *ngFor="let m of man">
+<div>Name : {{m}}</div>
+
+</div>
+
+<a [routerLink]="['/form1']">Form 1</a><br/><br/>
+<a [routerLink]="['/form2']">Form 2</a><br/><br/>
+<a [routerLink]="['/form3']">Form 3</a><br/><br/>
+<a [routerLink]="['/form4']">Parent component</a><br/><br/>
+
+
+<b>User Detail</b>
+<div *ngFor="let u of user">
+  <div>Name : {{u.name | stringpipe:'3':'0' }} , Account: {{u.address}}</div>
+  </div>
+<div>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+<label>
+  <span>Name :</span>
+  <input type="text" formControlName="name" placeholder="name" class="form-control input-md"/>
+</label>
+<label>
+    <span>address :</span>
+    <input type="text" formControlName="address" placeholder="adddress" class="form-control input-md"/>
+  </label>
+  <button type="submit" class="btn btn-submit">Add</button>
+</form>
+</div> 
